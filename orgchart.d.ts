@@ -1,5 +1,4 @@
 declare namespace OrgChart {
-    
     enum orientation {
         top,
         left,
@@ -8,7 +7,7 @@ declare namespace OrgChart {
         top_left,
         bottom_left,
         right_top,
-        left_top
+        left_top,
     }
     enum action {
         /**
@@ -24,13 +23,13 @@ declare namespace OrgChart {
          */
         xScroll,
         /**
-         * mouseScrool value 
+         * mouseScrool value
          */
         yScroll,
         /**
          * nodeMouseClick value
          */
-        edit, 
+        edit,
         /**
          * nodeMouseClick and nodeMouseDbClick value
          */
@@ -38,13 +37,13 @@ declare namespace OrgChart {
         /**
          * nodeMouseClick and nodeMouseDbClick value
          */
-        expandCollapse, 
+        expandCollapse,
         /**
          * nodeMouseClick, nodeMouseDbClick and mouseScrool value
          */
         none,
         update,
-        centerNode
+        centerNode,
     }
     enum scroll {
         visible,
@@ -53,7 +52,7 @@ declare namespace OrgChart {
     enum match {
         height,
         width,
-        boundary
+        boundary,
     }
 
     enum anim {
@@ -72,90 +71,87 @@ declare namespace OrgChart {
         rebound,
         inBack,
         outBack,
-        inOutBack
+        inOutBack,
     }
 
+    const templates: any
 
-    const templates: any;
+    const icon: any
 
-    const icon: any;
+    const none: any
 
-    const none: any;
+    const CENTER: any
+    const ORIENTATION: any
 
-    const CENTER: any;
-    const ORIENTATION: any;
-    
-    const COLLAPSE: any;
-    const EXPAND: any;
+    const COLLAPSE: any
+    const EXPAND: any
 
-    const COLLAPSE_PARENT_NEIGHBORS: any;
-    const COLLAPSE_SUB_CHILDRENS: any;
+    const COLLAPSE_PARENT_NEIGHBORS: any
+    const COLLAPSE_SUB_CHILDRENS: any
 
-    const normal: any;  
-    const mixed: any;
-    const tree: any;
-    const treeLeftOffset: any;
-    const treeRightOffset: any;
+    const normal: any
+    const mixed: any
+    const tree: any
+    const treeLeftOffset: any
+    const treeRightOffset: any
 
-    const slinkTemplates: any;
-    
-    const menuUI: any;
-    
-    const _guid: Function;
-    const randomId: Function;
+    const slinkTemplates: any
 
-    var MINIMIZE: string;
-    var MAXIMIZE: string;
+    const menuUI: any
 
+    const _guid: Function
+    const randomId: Function
+
+    var MINIMIZE: string
+    var MAXIMIZE: string
 }
 
 interface NodeModel {
-    id: string | number,
-    pid: string | number,
-    parent: NodeModel,
-    stpid: string | number,
-    stParent: NodeModel,
-    childrenIds: Array<string | number>,
-    children: Array<NodeModel>,
-    stChildrenIds: Array<string | number>,
-    stChildren: Array<NodeModel>,
-    tags: Array<string>,
-    templateName: string,
-    leftNeighbor: NodeModel,
-    rightNeighbor: NodeModel,
-    x: number,
-    y: number,
-    w: number,
-    h: number,
-    isAssistant: boolean,
-    stContainerNodes: Array<NodeModel>,
-    order: number,
-    collapsed: boolean,
-    level: number,
-    min: boolean,
-    subLevels: number,
-    padding: number,
-    lcn: string,
+    id: string | number
+    pid: string | number
+    parent: NodeModel
+    stpid: string | number
+    stParent: NodeModel
+    childrenIds: Array<string | number>
+    children: Array<NodeModel>
+    stChildrenIds: Array<string | number>
+    stChildren: Array<NodeModel>
+    tags: Array<string>
+    templateName: string
+    leftNeighbor: NodeModel
+    rightNeighbor: NodeModel
+    x: number
+    y: number
+    w: number
+    h: number
+    isAssistant: boolean
+    stContainerNodes: Array<NodeModel>
+    order: number
+    collapsed: boolean
+    level: number
+    min: boolean
+    subLevels: number
+    padding: number
+    lcn: string
     isSplit: boolean
 }
 
 interface Menu {
-    add?: Object,
-    edit?: Object,
-    details?: Object,
-    remove?: Object,
-    svg?: Object,
-    pdf?: Object,
-    png?: Object,
-    csv?: Object,
-    addInGroup?: Object,
-    addAsChild?: Object,
-    [name: string]: Object,
+    add?: Object | undefined
+    edit?: Object | undefined
+    details?: Object | undefined
+    remove?: Object | undefined
+    svg?: Object | undefined
+    pdf?: Object | undefined
+    png?: Object | undefined
+    csv?: Object | undefined
+    addInGroup?: Object | undefined
+    addAsChild?: Object | undefined
+    [name: string]: Object
 }
 
-
 interface Tags {
-    [name: string]: Object,
+    [name: string]: Object
 }
 
 interface OrgChartOptions {
@@ -170,7 +166,7 @@ interface OrgChartOptions {
     });
     ```
      */
-    lazyLoading?: boolean,
+    lazyLoading?: boolean | undefined
     /**
      * Enables advanced search.
 
@@ -183,7 +179,7 @@ interface OrgChartOptions {
     });
 ```
     */
-    enableSearch?: boolean,
+    enableSearch?: boolean | undefined
     /**
      * Specifies the orientation of the OrgChart JS. could accept one of the following values:
 
@@ -205,7 +201,7 @@ Code example:
         });  
    ``` 
      */
-    orientation?: OrgChart.orientation,
+    orientation?: OrgChart.orientation | undefined
     /**
      * mouseScrool can accept the following values:
 
@@ -227,7 +223,7 @@ Code example:
     });
 ```
     */
-    mouseScrool?: OrgChart.action,
+    mouseScrool?: OrgChart.action | undefined
     /**
      * Node binding in OrgChart JS maps node data to node template parameters.
 
@@ -248,7 +244,7 @@ In the example above the field name will be bount to field_0 from the template.
 
 Also you can define your own field in the templae, for more information go to Fields page on our website.
      */
-    nodeBinding?: Object,
+    nodeBinding?: Object | undefined
     /**
      * With the drag and drop features of OrgChart, you can move nodes easily.
      * Default value: true
@@ -260,8 +256,8 @@ Also you can define your own field in the templae, for more information go to Fi
     });
 ```
     */
-    enableDragDrop?: boolean,
-    enableTouch?: boolean,
+    enableDragDrop?: boolean | undefined
+    enableTouch?: boolean | undefined
     /**
      * Enables edit, add, remove and other node operations. Also you can define your own node operation for more information see Node Menu Item
 
@@ -279,7 +275,7 @@ Also you can define your own field in the templae, for more information go to Fi
     });
 ```
      */
-    nodeMenu?: Menu,
+    nodeMenu?: Menu | undefined
     /**
      * Context menu. Also you can define your own node operation for more information see Menu
 
@@ -298,7 +294,7 @@ Code example:
     });
  ```
     */
-    nodeContextMenu?: Menu,
+    nodeContextMenu?: Menu | undefined
     /**
      * Use dragDropMenu with drag & drop and grouping feature.
 
@@ -314,7 +310,7 @@ Code example:
     });
 ```
     */
-    dragDropMenu?: Menu,
+    dragDropMenu?: Menu | undefined
     /**
      * Enables export to excel, export to svg and other OrgChart operations. Also you can define your own OrgChart operation for more information see OrgChart.ImportFormCSV
 
@@ -330,7 +326,7 @@ Code example:
     });
 ```
     */
-    menu?: Menu,
+    menu?: Menu | undefined
     /**
      * A toolbar is a set of icons or buttons.
 
@@ -349,7 +345,7 @@ Code example:
         }); 
 ```    
      */
-    toolbar?: Object,
+    toolbar?: Object | undefined
     /**
      * Stop the org chart locking to the top of the screen once you move it.
 
@@ -363,7 +359,7 @@ Code example:
     });
  ```    
      */
-    sticky?: boolean,
+    sticky?: boolean | undefined
     /**
      * nodeMouseClick can accept the following values:
 
@@ -384,9 +380,7 @@ Code example:
     });
 ```    
      */
-    nodeMouseClick?: OrgChart.action,
-
-
+    nodeMouseClick?: OrgChart.action | undefined
 
     /**
      * nodeMouseDbClick can accept the following values:
@@ -406,7 +400,7 @@ Code example:
     });
    ```  
      */
-    nodeMouseDbClick?: OrgChart.action,
+    nodeMouseDbClick?: OrgChart.action | undefined
     /**
      * showXScroll can accept the following values:
 
@@ -423,7 +417,7 @@ Code example:
     });
 ```
     */
-    showXScroll?: OrgChart.scroll,
+    showXScroll?: OrgChart.scroll | undefined
     /**
      * 
      * showYScroll can accept the following values:
@@ -441,7 +435,7 @@ Code example:
     });
 ```
     */
-    showYScroll?: OrgChart.scroll,
+    showYScroll?: OrgChart.scroll | undefined
     /**
     Set template if you want to change the appearance of the chart. OrgChart JS comes with number of build-in templates:
 
@@ -470,7 +464,7 @@ Code example:
     });
 ```
     */
-    template?: string,
+    template?: string | undefined
     /**
      * With tags option you can:
 
@@ -567,7 +561,7 @@ Code example:
     });
 ```
      */
-    tags?: Tags,
+    tags?: Tags | undefined
     /**
      * Link binding in OrgChart JS maps node data to link template parameters.
 
@@ -585,7 +579,7 @@ Code example:
         }); 
 ```
         */
-    linkBinding?: Object,
+    linkBinding?: Object | undefined
     /**
      * Search by the fields defined in searchFields.
 
@@ -599,7 +593,7 @@ Code example:
         }); 
  ```
         */
-    searchFields?: Array<string>,
+    searchFields?: Array<string> | undefined
     /**
      * Array of node data JSON objects. nodes option is the data source of the chart.
 
@@ -621,7 +615,7 @@ Node JSON objects could have unlimited number of properties, id, pid and tags ar
 - tags - array of strings
 
      */
-    nodes?: Array<Object>,
+    nodes?: Array<Object> | undefined
     /**
      *  Add C link.
 
@@ -639,7 +633,7 @@ Code example:
     });
  ```  
      */
-    clinks?: Array<Object>,
+    clinks?: Array<Object> | undefined
     /**
      *  Add S link.
 
@@ -657,7 +651,7 @@ Code example:
         });
    ``` 
      */
-    slinks?: Array<Object>,
+    slinks?: Array<Object> | undefined
     /**
      * The gap between each level.
 
@@ -671,7 +665,7 @@ Code example:
         });
  ```
         */
-    levelSeparation?: number,
+    levelSeparation?: number | undefined
     /**
      * The gap between nodes in a subtree.
 
@@ -685,7 +679,7 @@ Code example:
         });  
  ```   
      */
-    siblingSeparation?: number,
+    siblingSeparation?: number | undefined
     /**
      * The gap between subtrees.
 
@@ -699,7 +693,7 @@ Code example:
         }); 
  ```
         */
-    subtreeSeparation?: number,
+    subtreeSeparation?: number | undefined
     /**
      * The gap between nodes in vertical layout.
 
@@ -713,7 +707,7 @@ Code example:
         }); 
  ```
         */
-    mixedHierarchyNodesSeparation?: number,
+    mixedHierarchyNodesSeparation?: number | undefined
     /**
      * The padding option sets the padding area on all four sides of the OrgChart.
 
@@ -727,7 +721,7 @@ Code example:
         });  
  ```   
      */
-    padding?: number,
+    padding?: number | undefined
     /**
      * The layout of the OrgChart
 
@@ -746,7 +740,7 @@ Code example:
         });  
  ```   
      */
-    layout?: OrgChart,
+    layout?: OrgChart | undefined
     /**
      * The scale factor determines what fraction of the entire scale is visible at one time.
 
@@ -766,7 +760,7 @@ Code example:
  ```
         For more information go to Layout page on our website.
      */
-    scaleInitial?: OrgChart.match | number,
+    scaleInitial?: OrgChart.match | number | undefined
     /**
      * Determines the minimum scale factor.
 
@@ -780,7 +774,7 @@ Code example:
         });  
  ```
         */
-    scaleMin?: number,
+    scaleMin?: number | undefined
     /**
      * Determines the naximum scale factor.
 
@@ -794,7 +788,7 @@ Code example:
         });  
  ```
         */
-    scaleMax?: number,
+    scaleMax?: number | undefined
     /**
      * The orderBy option is used to sort the nodes in ascending order by specified field. The default order is by nodes order in the nodes array.
 
@@ -817,17 +811,17 @@ In the example above node with id 11 will be before node with id 10. orderBy can
 
 
      */
-    orderBy?: string,
-    editUI?: Object,
-    searchUI?: Object,
-    xScrollUI?: Object,
-    yScrollUI?: Object,
-    nodeMenuUI?: Object,
-    nodeContextMenuUI?: Object,
-    toolbarUI?: Object,
-    notifierUI?: Object,
+    orderBy?: string | undefined
+    editUI?: Object | undefined
+    searchUI?: Object | undefined
+    xScrollUI?: Object | undefined
+    yScrollUI?: Object | undefined
+    nodeMenuUI?: Object | undefined
+    nodeContextMenuUI?: Object | undefined
+    toolbarUI?: Object | undefined
+    notifierUI?: Object | undefined
     //dragDropMenuUI?: Object, // removed
-    menuUI?: Object,
+    menuUI?: Object | undefined
     /**
      * The URL to the export server.
 
@@ -841,7 +835,7 @@ Code example:
         }); 
  ```
         */
-    exportUrl?: string,
+    exportUrl?: string | undefined
     /**
      * Collapse specified level of the chart and its children if allChildren is true.
 
@@ -856,7 +850,7 @@ Code example:
         });
    ``` 
      */
-    collapse?: Object,
+    collapse?: Object | undefined
     /**
      * Expand specified node ids and its children if allChildren is true.
 
@@ -879,7 +873,7 @@ Code example:
         });
    ``` 
      */
-    expand?: Object,
+    expand?: Object | undefined
     /**
      *  The align option specifies the alignment of the nodes inside OrgChart JS.
 
@@ -896,8 +890,8 @@ Code example:
         }); 
  ```   
      */
-    align?: OrgChart,
-    UI?: OrgChart,
+    align?: OrgChart | undefined
+    UI?: OrgChart | undefined
     /**
      *Can be used to control the transition of the nodes on expand/collapse operation.
 
@@ -935,7 +929,7 @@ Code example:
         });  
  ```
         */
-    anim?: Object,
+    anim?: Object | undefined
     /**
      * Can be used to control the zooming sensitivity.
 
@@ -952,30 +946,26 @@ Code example:
         }); 
  ```   
      */
-    zoom?: Object,
-    roots?: Array<number>,
-    onUpdate?: string,
-    onRemove?: string,
-    onAdd?: string,
-    onRedraw?: string,
-    onImageUploaded?: string,
-    onClick?: string,
-    onDbClick?: string,
-    onExpCollClick?: string | Function,
-    onExportStart?: string | Function,
-    onExportEnd?: string | Function,
-    onSearchClick?: string | Function,
-    onReady?: string | Function,
-    assistantSeparation?: number,
-    columns?: number
-
+    zoom?: Object | undefined
+    roots?: Array<number> | undefined
+    onUpdate?: string | undefined
+    onRemove?: string | undefined
+    onAdd?: string | undefined
+    onRedraw?: string | undefined
+    onImageUploaded?: string | undefined
+    onClick?: string | undefined
+    onDbClick?: string | undefined
+    onExpCollClick?: string | Function | undefined
+    onExportStart?: string | Function | undefined
+    onExportEnd?: string | Function | undefined
+    onSearchClick?: string | Function | undefined
+    onReady?: string | Function | undefined
+    assistantSeparation?: number | undefined
+    columns?: number | undefined
 }
 
-
-
 declare class OrgChart {
-    constructor(element: HTMLElement, options: OrgChartOptions);
-
+    constructor(element: HTMLElement, options: OrgChartOptions)
 
     /** 
      * Returns the node data for given node id
@@ -992,7 +982,7 @@ declare class OrgChart {
 
      * Returns JSON data */
 
-    get(nodeId: string | number) : Object;
+    get(nodeId: string | number): Object
 
     /**
      * Updates the node JSON object.
@@ -1012,10 +1002,14 @@ declare class OrgChart {
         ```   
         Will update the node with id 4 and will redraw the chart.
       */
-     
-    updateNode(nodeJSONdata: Object, callback?: Function, fireEvent?: boolean) : void;
 
-     /**
+    updateNode(
+        nodeJSONdata: Object,
+        callback?: Function | undefined,
+        fireEvent?: boolean | undefined
+    ): void
+
+    /**
       * Updates the node JSON object.
       * 
       * Signature:
@@ -1032,9 +1026,9 @@ declare class OrgChart {
         ```   
         Will find the node with id 4 but it will not redraw the chart, you can use this method when you need to update two or more nodes, then call the draw function. Returns the chart object.
       */
-    update(nodeJSONdata: Object) : Object;
- 
-     /**
+    update(nodeJSONdata: Object): Object
+
+    /**
       * Removes specified node from nodes collection.
       * 
       *  Signature:
@@ -1052,8 +1046,12 @@ declare class OrgChart {
         ```   
         Will remove node with id 5 and will redraw the chart.
       */
-     
-    removeNode(nodeId: string | number, callback?: Function, fireEvent?: boolean): void;    
+
+    removeNode(
+        nodeId: string | number,
+        callback?: Function | undefined,
+        fireEvent?: boolean | undefined
+    ): void
 
     /**
      *Removes specified node from nodes collection.
@@ -1072,7 +1070,7 @@ declare class OrgChart {
         ```   
     Will remove node with id 5 but it will not redraw the chart, you can use this method when you need to remove two ore more nodes, then call the draw function. Returns the chart object. 
      */
-    remove(nodeId: string | number): Object;   
+    remove(nodeId: string | number): Object
 
     /**
      * * Adds new node to the nodes collection.
@@ -1093,7 +1091,11 @@ declare class OrgChart {
         ```    
      */
 
-    addNode(nodeJSONdata: Object, callback?: Function, fireEvent?: boolean);
+    addNode(
+        nodeJSONdata: Object,
+        callback?: Function | undefined,
+        fireEvent?: boolean | undefined
+    )
 
     /**
      * Adds new node to the nodes collection.
@@ -1112,7 +1114,7 @@ declare class OrgChart {
     ```   
    Will add new node but it will not redraw the chart, you can use this method when you need add two or more nodes, then call the draw function. Returns the chart object.
      */
-    add(nodeJSONdata: Object) : Object;
+    add(nodeJSONdata: Object): Object
 
     /**
      * Adds a link between two nodes.
@@ -1135,7 +1137,7 @@ It will create a link from node 5 to node 6.
      * @param fromNodeId 
      * @param toNodeId 
      */
-    link(fromNodeId: string | number, toNodeId: string | number): void;
+    link(fromNodeId: string | number, toNodeId: string | number): void
 
     /**
      * Adds a link between two nodes.
@@ -1157,7 +1159,7 @@ It will create a link from node 5 to node 6 and will redraw the chart.
      * @param fromNodeId 
      * @param toNodeId 
      */
-    linkNode(fromNodeId: string | number, toNodeId: string | number) : void;
+    linkNode(fromNodeId: string | number, toNodeId: string | number): void
 
     /**
      * Center specified node on the screen.
@@ -1184,7 +1186,7 @@ Code example:
      * @param nodeId 
      * @param options 
      */
-    center(nodeId: string | number, options: Object) : void;
+    center(nodeId: string | number, options: Object): void
 
     /**
      * Animate specified node with ripple animation - highlight the node.
@@ -1203,7 +1205,7 @@ Code example:
 ```
         * @param nodeId 
      */
-    ripple(nodeId: string | number) : void;
+    ripple(nodeId: string | number): void
 
     /**
      * Gets the current scale of the chart.
@@ -1217,7 +1219,7 @@ Code example:
         var scale = chart.getScale();
    ```
         */
-    getScale() : number;
+    getScale(): number
 
     /**
      * Zoom out or zoom in the chart.
@@ -1240,7 +1242,11 @@ Code example:
      * @param center 
      * @param [anim] 
      */
-    zoom(delta: boolean | number, center: Array<number>, anim? : boolean) : void;
+    zoom(
+        delta: boolean | number,
+        center: Array<number>,
+        anim?: boolean | undefined
+    ): void
 
     /**
      * Exports the chart to svg file.
@@ -1263,7 +1269,11 @@ Code example:
      * @param expandChildren 
      * @param nodeId 
      */
-    exportSVG(filename: string, expandChildren: boolean, nodeId: string | number ) : void;
+    exportSVG(
+        filename: string,
+        expandChildren: boolean,
+        nodeId: string | number
+    ): void
 
     /**
      * Exports the chart to png file.
@@ -1289,7 +1299,7 @@ Code example:
  ```
         * @param options 
      */
-    exportPNG(options: Object) : void;
+    exportPNG(options: Object): void
 
     /**
      * Exports the chart to pdf file.
@@ -1318,7 +1328,7 @@ Code example:
    ``` 
      * @param options 
      */
-    exportPDF(options: Object) : void;
+    exportPDF(options: Object): void
 
     /**
      * Exports the chart to CSV file.
@@ -1341,9 +1351,9 @@ Code example:
    ```
         * @param options 
      */
-    exportCSV(options: Object) : void;
+    exportCSV(options: Object): void
 
-        /**
+    /**
      * Exports the chart to XML file.
 
 Signature:
@@ -1360,7 +1370,7 @@ Code example:
    ```
         * @param filename 
      */
-    exportXML(filename: string) : void;
+    exportXML(filename: string): void
 
     /**
      * Draws the chart.
@@ -1392,7 +1402,7 @@ Code example:
          chart.importCSV();
  ```
          */
-    importCSV() : void;
+    importCSV(): void
 
     /**
      * Import XML file.
@@ -1406,7 +1416,7 @@ Code example:
         chart.importXML();
    ```
         */
-    importXML() : void;
+    importXML(): void
 
     /**
      * Draws the chart.
@@ -1425,7 +1435,7 @@ Code example:
    ```
         * @param [action] 
      */
-    draw(action? : OrgChart.action) : void;
+    draw(action?: OrgChart.action | undefined): void
 
     /**
      * Expand specified nodes.
@@ -1448,7 +1458,11 @@ Code example:
      * @param ids 
      * @param [callback] 
      */
-    expand(id: string | number, ids: Array<string | number>, callback?: Function) : void;
+    expand(
+        id: string | number,
+        ids: Array<string | number>,
+        callback?: Function | undefined
+    ): void
 
     /**
      * Collapse specified nodes.
@@ -1471,7 +1485,11 @@ Code example:
      * @param ids 
      * @param [callback] 
      */
-    collapse(id: string | number, ids: Array<string | number>, callback?: Function) : void;
+    collapse(
+        id: string | number,
+        ids: Array<string | number>,
+        callback?: Function | undefined
+    ): void
 
     /**
      * Fits the content to the visible area.
@@ -1485,7 +1503,7 @@ Code example:
         chart.fit();
    ```
         */
-    fit(): void;
+    fit(): void
 
     /**
      * Finds node from the nodes collection.
@@ -1504,7 +1522,7 @@ Code example:
  ```
          * @param value 
      */
-    find(value: string | number) : void;
+    find(value: string | number): void
 
     /**
      * Load nodes.
@@ -1519,7 +1537,7 @@ Code example:
  ```
      * @param jsonArray 
      */
-    load(jsonArray: Array<Object>) : void;
+    load(jsonArray: Array<Object>): void
 
     /**
      *Load nodes from xml.
@@ -1534,7 +1552,7 @@ Code example:
    ```
         * @param xmlAsText 
      */
-    loadXML(xmlAsText: string) : void;
+    loadXML(xmlAsText: string): void
 
     /**
      * Gets nodes as xml.
@@ -1551,7 +1569,7 @@ Code example:
     
      * @returns xml 
      */
-    getXML() : string;
+    getXML(): string
 
     /**
      * Adds clink.
@@ -1573,7 +1591,12 @@ Code example:
      * @param label 
      * @param template 
      */
-    addClink(fromId: string | number, toId: string | number, label: string, template: string) : void;
+    addClink(
+        fromId: string | number,
+        toId: string | number,
+        label: string,
+        template: string
+    ): void
 
     /**
      * Removes clink.
@@ -1589,7 +1612,7 @@ Code example:
         * @param fromId 
      * @param toId 
      */
-    removeClink(fromId: string | number, toId: string | Number): void;
+    removeClink(fromId: string | number, toId: string | Number): void
 
     /**
      * Expand/Collapse to level.
@@ -1613,8 +1636,12 @@ Code example:
      * @param expand 
      * @param callback 
      */
-    expandCollapseToLevel(id: string | number, collapse: Object, expand: Object, callback: Function) : void; // How works this one ?
-
+    expandCollapseToLevel(
+        id: string | number,
+        collapse: Object,
+        expand: Object,
+        callback: Function
+    ): void // How works this one ?
 
     /**
      * Destroys the object.
@@ -1624,7 +1651,7 @@ Signature:
         chart.destroy();
    ```
         */
-    destroy(): void;
+    destroy(): void
 
     /**
      * Adds slink.
@@ -1642,8 +1669,12 @@ Code example:
      * @param label 
      * @param template 
      */
-    addSlink(fromId: string | number, toId: string | number, label: string, template: string) : void;
-
+    addSlink(
+        fromId: string | number,
+        toId: string | number,
+        label: string,
+        template: string
+    ): void
 
     /**
      * Removes slink.
@@ -1659,10 +1690,10 @@ Code example:
         * @param fromId 
      * @param toId 
      */
-    removeSlink(fromId: string | number, toId: string | number) : void;
+    removeSlink(fromId: string | number, toId: string | number): void
 
-    on(action: string, fun: Function): void;
-    getNode(id: string | number): NodeModel;
+    on(action: string, fun: Function): void
+    getNode(id: string | number): NodeModel
 
     /**
      * Maximize the node.
@@ -1681,9 +1712,14 @@ Code example:
      * chart.maximize(5);
      * ``` 
      */
-    maximize(id: string | number, horizontalCenter?: boolean, verticalCenter?: boolean, callback?: Function) : void;
- 
-       /**
+    maximize(
+        id: string | number,
+        horizontalCenter?: boolean | undefined,
+        verticalCenter?: boolean | undefined,
+        callback?: Function | undefined
+    ): void
+
+    /**
      * Minimize  the node.
      * 
       Signature:
@@ -1698,7 +1734,7 @@ Code example:
      * chart.minimize(5);
      * ``` 
      */
-    minimize(id: string | number, callback?: Function) : void;
+    minimize(id: string | number, callback?: Function | undefined): void
 
     /**
      * Set orientation.
@@ -1717,11 +1753,14 @@ Code example:
      chart.setOrientation(OrgChart.orientation.bottom);
      ```   
      */
-    setOrientation(orientation: OrgChart.orientation, lyoutConfigName?: string) : void;
+    setOrientation(
+        orientation: OrgChart.orientation,
+        lyoutConfigName?: string | undefined
+    ): void
 
     /**
      * Set layout.
-     * 
+     *
      * Signature:
      * ```
      * chart.setLayout(layout, lyoutConfigName);
@@ -1733,7 +1772,7 @@ Code example:
      * Code example:
      * ```
      * chart.setLayout(OrgChart.tree);
-     * ```     
+     * ```
      */
-    setLayout(layout: OrgChart, lyoutConfigName?: string) : void;
+    setLayout(layout: OrgChart, lyoutConfigName?: string | undefined): void
 }
